@@ -1,20 +1,19 @@
-package Home_Page;
 import java.awt.event.ActionEvent;
 
-import javax.print.attribute.standard.JobName;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.JavaBean;
 import java.util.ArrayList;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import javax.swing.text.*;
+import javax.print.attribute.standard.JobName;
 
 
-public class LibrarySystem{
+public class home{
     public static void main(String[] args){
         
         new Menu();
@@ -79,67 +78,6 @@ class Menu extends JFrame{
         
     }
 }
-
-class AdminLogin extends JFrame{
-    public AdminLogin(){
-        
-        JFrame frame = new JFrame("Admin Login");
-        JPanel panel = new JPanel(new GridLayout(7, 2, 5, 5));
-        frame.setSize(400,300);
-        frame.setVisible(true);
-        frame.setLocation(500,100);
-        dispose();
-
-        JTextField username = new JTextField();
-        JPasswordField password = new JPasswordField();
-        JLabel phoneLabel = new JLabel("Phone Number:");
-        JTextField phoneNumber = new JTextField();
-        JLabel username1 = new JLabel("Admin Name :");
-        JLabel password1 = new JLabel("Password :");
-        JButton sumbit = new JButton("Sumbit");
-        
-        
-        phoneNumber.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
-                
-                char  d = e.getKeyChar();
-                // 如果输入的不是字母，阻止输入
-                if ( !Character.isDigit(d)) {
-                    e.consume(); // 阻止输入
-                    JOptionPane.showMessageDialog(null, 
-                        "Wrong Phone Number", 
-                        "Invalid Phone Number", 
-                        JOptionPane.WARNING_MESSAGE);
-                }
-            }
-            
-        });
-        
-      sumbit.addActionListener(e -> {
-          
-        int result = JOptionPane.showConfirmDialog(null,"Username and Password Your are Confirm ?","QUESTION",JOptionPane.YES_NO_OPTION
-       );
-        if(result == JOptionPane.YES_OPTION){
-            new Book();
-        }
-        else{
-            new Menu();
-        }
-        });
-
-      
-        panel.add(username1);
-        panel.add(username);
-        panel.add(password1);
-        panel.add(password);
-        panel.add(phoneLabel);
-        panel.add(phoneNumber);
-        panel.add(sumbit);
-        frame.add(panel);
-
-    }
-}
-
 class Book extends JFrame{
     public Book(){
         JFrame frame = new JFrame("Book Categories");
@@ -149,33 +87,6 @@ class Book extends JFrame{
         frame.setLocation(500,100);
         dispose();
     }
-}
-class UserAndLogin extends JFrame{
-    public UserAndLogin(){
-        JFrame frame = new JFrame("#Login User");
-        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
-        frame.setLocation(500,100);
-        frame.setVisible(true);
-        frame.setSize(500,400);
-        
-       
-        JLabel UserAndLoginPage = new JLabel("Customer Login Page");
-        UserAndLoginPage.setFont(new Font("SansSerif",Font.BOLD,30));
-        UserAndLoginPage.setBackground(Color.GREEN);
-        JButton user = new JButton("Customer Username");
-        JButton password = new JButton("Customer Password");
-
-        frame.add(panel);
-        panel.add(UserAndLoginPage);
-        panel.add(user);
-        panel.add(password);
-
-        dispose();
-        user.addActionListener(e -> new Username());
-        password.addActionListener(e ->new Password());
-
-    }
-    
 }
 
 class Password extends JFrame  {
@@ -257,14 +168,120 @@ class  Username extends JFrame{
 
     }
 }
+class AdminLogin extends JFrame{
+    public AdminLogin(){
+        
+        JFrame frame = new JFrame("Admin Login");
+        JPanel panel = new JPanel(new GridLayout(7, 2, 5, 5));
+        frame.setSize(400,300);
+        frame.setVisible(true);
+        frame.setLocation(500,100);
+        dispose();
 
+        JTextField username = new JTextField();
+        JPasswordField password = new JPasswordField();
+        JLabel phoneLabel = new JLabel("Phone Number:");
+        JTextField phoneNumber = new JTextField();
+        JLabel username1 = new JLabel("Admin Name :");
+        JLabel password1 = new JLabel("Password :");
+        JButton sumbit = new JButton("Sumbit");
+        
+        
+        phoneNumber.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                
+                char  d = e.getKeyChar();
+                // 如果输入的不是字母，阻止输入
+                if ( !Character.isDigit(d)) {
+                    e.consume(); // 阻止输入
+                    JOptionPane.showMessageDialog(null, 
+                        "Wrong Phone Number", 
+                        "Invalid Phone Number", 
+                        JOptionPane.WARNING_MESSAGE);
+                }
+            }
+            
+        });
+        
+      sumbit.addActionListener(e -> {
+          
+        int result = JOptionPane.showConfirmDialog(null,"Username and Password Your are Confirm ?","QUESTION",JOptionPane.YES_NO_OPTION
+       );
+        if(result == JOptionPane.YES_OPTION){
+            new Book();
+        }
+        else{
+            new Menu();
+        }
+        });
 
+      
+        panel.add(username1);
+        panel.add(username);
+        panel.add(password1);
+        panel.add(password);
+        panel.add(phoneLabel);
+        panel.add(phoneNumber);
+        panel.add(sumbit);
+        frame.add(panel);
 
+    }
+}
+
+class UserAndLogin extends JFrame{
+    public UserAndLogin(){
+        JFrame frame = new JFrame("#Login User");
+        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
+        frame.setLocation(500,100);
+        frame.setVisible(true);
+        frame.setSize(500,400);
+        
+       
+        JLabel UserAndLoginPage = new JLabel("Customer Login Page");
+        UserAndLoginPage.setFont(new Font("SansSerif",Font.BOLD,30));
+        UserAndLoginPage.setBackground(Color.GREEN);
+        JButton user = new JButton("Customer Username");
+        JButton password = new JButton("Customer Password");
+
+        frame.add(panel);
+        panel.add(UserAndLoginPage);
+        panel.add(user);
+        panel.add(password);
+
+        dispose();
+        user.addActionListener(e -> new Username());
+        password.addActionListener(e ->new Password());
+
+    }
     
-     class  Register extends JFrame{
+}
+
+class BookMenu extends Frame{
+    public BookMenu(){
+        JFrame frame = new JFrame("#Book Menu");
+        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
+        frame.setLocation(500,100);
+        frame.setVisible(true);
+        frame.setSize(400,300);
+        dispose();
+    }
+}
+
+class member extends Frame{
+    public member(){
+        JFrame frame = new JFrame("#Member");
+        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
+        frame.setLocation(500,100);
+        frame.setVisible(true);
+        frame.setSize(400,300);
+        dispose();
+    }
+}
+
+class  Register extends JFrame{
 
     public Register(){
-        JFrame frame = new JFrame("#Login User");
+        JFrame frame = new JFrame("#Register");
         JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
         frame.setLocation(500,100);
         frame.setVisible(true);
@@ -304,24 +321,3 @@ class  Username extends JFrame{
     
 }
 
-class member extends Frame{
-    public member(){
-        JFrame frame = new JFrame("#Member");
-        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
-        frame.setLocation(500,100);
-        frame.setVisible(true);
-        frame.setSize(400,300);
-        dispose();
-    }
-}
-
-class BookMenu extends Frame{
-    public BookMenu(){
-        JFrame frame = new JFrame("#Book Menu");
-        JPanel panel =  new JPanel(new GridLayout(6,6,6,6));
-        frame.setLocation(500,100);
-        frame.setVisible(true);
-        frame.setSize(400,300);
-        dispose();
-    }
-}
