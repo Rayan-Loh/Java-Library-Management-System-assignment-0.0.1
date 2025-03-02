@@ -138,7 +138,7 @@ class AdminLogin extends JFrame{
 
             if (username.equals("admin") && password.equals("admin")) {
                 JOptionPane.showMessageDialog(frame, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
-                //new adminMenu.AdminMenu(); // 不知道怎么跳去或进入 Admin 界面。。。
+                new AdminMenu();  // 这里确保 AdminMenu 是一个 JFrame 或者 JPanel
                 frame.dispose(); // 关闭当前窗口
             } else {
                 JOptionPane.showMessageDialog(frame, "Login Failed", "Error", JOptionPane.ERROR_MESSAGE);
@@ -414,5 +414,37 @@ class member extends Frame{
         frame.setLocation(500,100);
         frame.setVisible(true);
         frame.setSize(400,300);
+    }
+}
+
+class AdminMenu extends Frame{
+    public AdminMenu() {
+        JFrame frame = new JFrame("Admin Menu");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(5, 1));
+        
+        JLabel titleLabel = new JLabel("Welcome, Admin!", JLabel.CENTER);
+        frame.add(titleLabel);
+        
+        JButton manageUsersButton = new JButton("Manage Users");
+        JButton manageBooksButton = new JButton("Manage Books");
+        JButton viewRecordsButton = new JButton("View Records");
+        JButton backButton = new JButton("Back to Main Menu");
+        
+        frame.add(manageUsersButton);
+        frame.add(manageBooksButton);
+        frame.add(viewRecordsButton);
+        frame.add(backButton);
+        
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose(); // 关闭当前窗口
+                new AdminLogin(); // 返回登录界面
+            }
+        });
+        
+        frame.setVisible(true);
     }
 }
