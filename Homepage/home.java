@@ -1,5 +1,5 @@
-//package Homepage;
-//import adminMenu.AdminMenu;
+package Homepage;
+import AdminMenu.AdminMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -137,7 +137,7 @@ class AdminLogin extends JFrame{
 
             if (username.equals("admin") && password.equals("admin")) {
                 JOptionPane.showMessageDialog(frame, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
-                //new adminMenu.AdminMenu(); // 不知道怎么跳去或进入 Admin 界面。。。
+                new AdminMenu();  // 这里确保 AdminMenu 是一个 JFrame 或者 JPanel
                 frame.dispose(); // 关闭当前窗口
             } else {
                 JOptionPane.showMessageDialog(frame, "Login Failed", "Error", JOptionPane.ERROR_MESSAGE);
