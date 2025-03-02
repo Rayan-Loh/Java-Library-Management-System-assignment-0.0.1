@@ -1,5 +1,6 @@
 package Homepage;
 import AdminMenu.AdminMenu;
+import MainMenu.MainMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -275,6 +276,8 @@ class UserAndLogin extends JFrame{
                     JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                new MainMenu(); // 这里确保 Member 是一个 JFrame 或者 JPanel
+                dispose(); // 关闭当前窗口
             }
         });
 
