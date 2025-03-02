@@ -1,5 +1,5 @@
-//package Homepage;
-//import adminMenu.AdminMenu;
+package Homepage;
+import AdminMenu.AdminMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -414,37 +414,5 @@ class member extends Frame{
         frame.setLocation(500,100);
         frame.setVisible(true);
         frame.setSize(400,300);
-    }
-}
-
-class AdminMenu extends Frame{
-    public AdminMenu() {
-        JFrame frame = new JFrame("Admin Menu");
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(5, 1));
-        
-        JLabel titleLabel = new JLabel("Welcome, Admin!", JLabel.CENTER);
-        frame.add(titleLabel);
-        
-        JButton manageUsersButton = new JButton("Manage Users");
-        JButton manageBooksButton = new JButton("Manage Books");
-        JButton viewRecordsButton = new JButton("View Records");
-        JButton backButton = new JButton("Back to Main Menu");
-        
-        frame.add(manageUsersButton);
-        frame.add(manageBooksButton);
-        frame.add(viewRecordsButton);
-        frame.add(backButton);
-        
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // 关闭当前窗口
-                new AdminLogin(); // 返回登录界面
-            }
-        });
-        
-        frame.setVisible(true);
     }
 }
